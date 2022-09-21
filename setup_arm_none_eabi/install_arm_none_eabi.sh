@@ -12,5 +12,8 @@ sudo ln -s /usr/share/${latest_arm_none_eabi}/bin/arm-none-eabi-gcc /usr/bin/arm
 sudo ln -s /usr/share/${latest_arm_none_eabi}/bin/arm-none-eabi-g++ /usr/bin/arm-none-eabi-g++
 sudo ln -s /usr/share/${latest_arm_none_eabi}/bin/arm-none-eabi-gdb /usr/bin/arm-none-eabi-gdb
 sudo ln -s /usr/share/${latest_arm_none_eabi}/bin/arm-none-eabi-size /usr/bin/arm-none-eabi-size
+sudo ln -s /usr/share/${latest_arm_none_eabi}/bin/arm-none-eabi-objcopy /usr/bin/arm-none-eabi-objcopy
+sudo ln -s /usr/share/${latest_arm_none_eabi}/bin/arm-none-eabi-objdump /usr/bin/arm-none-eabi-objdump
+# Add other required commands here!
 
 rm -rf temp
