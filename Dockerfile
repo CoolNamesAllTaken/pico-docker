@@ -1,5 +1,5 @@
 FROM ubuntu
-ADD modules/setup-scripts /usr/setup
+ADD setup_scripts /usr/setup
 WORKDIR /usr/setup
 
 # NOTE: don't run this before updating all git submodules, e.g. tinyusb for the pico SDK!
@@ -17,7 +17,7 @@ RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_jlink/install_jlink.sh"]
 RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_jlink/install_dependencies.sh"]
 
 # Install Pico SDK
-ADD modules/pico-sdk /usr/local/pico-sdk
+ADD pico-sdk /usr/local/pico-sdk
 ENV PICO_SDK_PATH /usr/local/pico-sdk
 RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_pico_sdk/install_dependencies.sh"]
 
