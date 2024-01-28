@@ -33,11 +33,17 @@ docker build -t pico-docker .
 
 ## 3: Run the Docker Container
 
-Navigate to the directory you would like to bind to the docker container. Use the commands in 3A or 3B (depending on your operating system) to start the docker container and bind it to your current directory. This will create a container that is bind-mounted to your present working directory, so any files you change in your directory will also be changed in the docker container. If you stop the docker container and start it up again later, it will still be bound to the specified directory.
+Navigate to the directory you would like to bind to the docker container. Use the commands in 3A, 3B, or 3C (depending on your prefernece and operating system) to start the docker container and bind it to your current directory. This will create a container that is bind-mounted to your present working directory, so any files you change in your directory will also be changed in the docker container. If you stop the docker container and start it up again later, it will still be bound to the specified directory.
 
 If you use this docker container for multiple projects, you will end up with a number of different pico-docker containers, each bind-mounted to a separate project directory.
 
-### 3A: Running the Docker container on Linux or Mac
+### 3A: Docker Compose
+
+This is the easiest option for running a pico-docker container! Copy `compose.example.yml` into the project folder that you would like to mount to your docker container, and edit it to change where your project will mount to in the container.
+
+Run the docker container by calling `docker compose up` in the directory with the compose YAML file.
+
+### 3B: Running the Docker container manually on Linux or Mac
 
 Start an interactive docker container on Linux or Mac with the command below. Mounts the current directory to `/root/<current directory>`.
 
@@ -45,7 +51,7 @@ Start an interactive docker container on Linux or Mac with the command below. Mo
 docker run --name pico-docker -it --mount type=bind,source="$(pwd)",target=/root/$(pwd) pico-docker-image
 ```
 
-### 3B: Running the Docker container on Windows
+### 3C: Running the Docker container manually on Windows
 
 Start an interactive docker container on Windows with the command below. Mounts the current directory to `/root/<current directory>`.
 
