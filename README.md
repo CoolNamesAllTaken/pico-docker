@@ -52,3 +52,7 @@ Start an interactive docker container on Windows with the command below. Mounts 
 ```bash
 winpty docker run --name pico-docker -it --mount type=bind,source="$(pwd)",target=/root/$(pwd) pico-docker-image
 ```
+
+### Develop in the Docker container
+
+Connect to the docker container with VS Code or another IDE and enjoy developing! The environment variable PICO_SDK_PATH should be set, and the Pico SDK should be available at `/usr/local/bin`.
