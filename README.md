@@ -31,6 +31,12 @@ From this directory, run the following shell command. This will build the Docker
 docker build -t pico-docker .
 ```
 
+If you want to output stdout and stderr from the build process to a log file, use the following command instead.
+
+```bash
+docker build --no-cache --progress=plain -t pico-docker . &>build.log
+```
+
 ## 3: Run the Docker Container
 
 Navigate to the directory you would like to bind to the docker container. Use the commands in 3A, 3B, or 3C (depending on your prefernece and operating system) to start the docker container and bind it to your current directory. This will create a container that is bind-mounted to your present working directory, so any files you change in your directory will also be changed in the docker container. If you stop the docker container and start it up again later, it will still be bound to the specified directory.
