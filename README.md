@@ -23,7 +23,7 @@ Run `docker image pull coolnamesalltaken/pico-docker:latest` on your command lin
 
 ### 2B: Build the Docker image yourself
 
-Be sure to run `git submodule update --init` before building!
+Be sure to run `git submodule update --init --recursive` before building! You may need to change Git's [long filename setting](https://katalon-inc.my.site.com/katalonhelpcenter/s/article/How-to-fix-Git-Clone-Filename-too-long-Error-in-Windows) for this to complete successfully.
 
 From this directory, run the following shell command. This will build the Docker file in the current directory and tag it with the name "pico-docker".
 
