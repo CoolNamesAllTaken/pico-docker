@@ -2,6 +2,7 @@
 
 jlink_linux_url=https://www.segger.com/downloads/jlink/JLink_Linux_x86_64.deb
 
+sudo apt -y install libncurses5
 
 mkdir temp
 
@@ -16,3 +17,5 @@ apt install -yf
 # Note that dpkg installs stuff into opt/SEGGER.
 
 rm -rf temp
+
+sudo apt --fix-broken install -y

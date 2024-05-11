@@ -31,7 +31,7 @@ From this directory, run the following shell command. This will build the Docker
 docker build -t pico-docker .
 ```
 
-If you want to output stdout and stderr from the build process to a log file, use the following command instead.
+If you want to output stdout and stderr from the build process to a log file, use the following command instead. Note that the `--no-cache` option will force every build step to rebuild from scratch, which may be helpful if a change to the Dockerfile is not taking effect properly.
 
 ```bash
 docker build --no-cache --progress=plain -t pico-docker . &>build.log

@@ -10,11 +10,9 @@ RUN ["/usr/bin/bash", "-c", "apt -y install wget"]
 
 # Install ARM toolchain and dependencies.
 RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_arm_none_eabi/install_arm_none_eabi.sh"]
-RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_arm_none_eabi/install_dependencies.sh"]
 
 # Install JLink toolchain and dependencies.
 RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_jlink/install_jlink.sh"]
-RUN ["/usr/bin/bash", "-c", "/usr/setup/setup_jlink/install_dependencies.sh"]
 
 # Install Pico SDK
 ADD pico-sdk /usr/local/pico-sdk
