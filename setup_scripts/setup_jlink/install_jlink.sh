@@ -2,7 +2,7 @@
 
 jlink_linux_url=https://www.segger.com/downloads/jlink/JLink_Linux_x86_64.deb
 
-sudo apt -y install libncurses5
+# sudo apt -y install libncurses5 # Already taken care of by arm_none_eabi dependencies.
 
 mkdir temp
 
