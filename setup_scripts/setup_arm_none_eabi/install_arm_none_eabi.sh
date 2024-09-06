@@ -16,14 +16,14 @@ sudo apt -y install python3
 sudo apt -y install python3-pip
 
 # arm-none-eabi-gdb requires Python 3.8 for some godforsaken reason.
-sudo apt install software-properties-common
-sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt -y install software-properties-common
+sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt install -y python3.8
 
 sudo apt install -y build-essential
 
 # Remove existing (probably outdated) install.
-sudo apt remove gcc-arm-none-eabi
+sudo apt remove -y gcc-arm-none-eabi
 
 mkdir temp
 wget -O temp/${latest_arm_none_eabi}.tar.xz $latest_arm_none_eabi_url
