@@ -28,13 +28,13 @@ Be sure to run `git submodule update --init --recursive` before building! You ma
 From this directory, run the following shell command. This will build the Docker file in the current directory and tag it with the name "pico-docker".
 
 ```bash
-docker build -t pico-docker .
+docker build -t pico-docker --platform linux/amd64 .
 ```
 
 If you want to output stdout and stderr from the build process to a log file, use the following command instead. Note that the `--no-cache` option will force every build step to rebuild from scratch, which may be helpful if a change to the Dockerfile is not taking effect properly.
 
 ```bash
-docker build --no-cache --progress=plain -t pico-docker . &>build.log
+docker build --no-cache --progress=plain -t pico-docker --platform linux/amd64 . &>build.log
 ```
 
 ## 3: Run the Docker Container

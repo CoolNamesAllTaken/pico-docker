@@ -1,6 +1,7 @@
 services:
   pico-docker:
     image: coolnamesalltaken/pico-docker:latest
+    platform: linux/amd64 # Specify the platform to ensure that the installed utilities are compatible.
     volumes:
       - type: bind
         source: . # Which directory from the host computer gets mounted to the container.
