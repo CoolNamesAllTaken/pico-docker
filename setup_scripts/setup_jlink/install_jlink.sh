@@ -1,6 +1,10 @@
 #!/bin/bash
 
-jlink_linux_url=https://www.segger.com/downloads/jlink/JLink_Linux_x86_64.deb
+if [[ $(uname -m) == "aarch64" || $(uname -m) == "arm64" ]]; then
+    jlink_linux_url=https://www.segger.com/downloads/jlink/JLink_Linux_Arm64.deb
+else
+    jlink_linux_url=https://www.segger.com/downloads/jlink/JLink_Linux_x86_64.deb
+fi
 
 # sudo apt -y install libncurses5 # Already taken care of by arm_none_eabi dependencies.
 

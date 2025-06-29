@@ -1,16 +1,28 @@
 #!/bin/bash
 
-latest_arm_none_eabi=gcc-arm-none-eabi-13.3.1
-latest_arm_none_eabi_url="https://developer.arm.com/-/media/Files/downloads/gnu/13.3.rel1/binrel/arm-gnu-toolchain-13.3.rel1-x86_64-arm-none-eabi.tar.xz?rev=e434b9ea4afc4ed7998329566b764309&hash=CA590209F5774EE1C96E6450E14A3E26"
+latest_arm_none_eabi_version=14.2.rel1
+latest_arm_none_eabi=gcc-arm-none-eabi-${latest_arm_none_eabi_version}
+x86_url=https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-x86_64-arm-none-eabi.tar.xz
+arm_url=https://developer.arm.com/-/media/Files/downloads/gnu/14.2.rel1/binrel/arm-gnu-toolchain-14.2.rel1-aarch64-arm-none-eabi.tar.xz
+
+# Determine the appropriate download URL based on host architecture
+if [ "$(uname -m)" = "aarch64" ]; then
+    latest_arm_none_eabi_url=$arm_url
+else
+    latest_arm_none_eabi_url=$x86_url
+fi
 
 # Install dependencies.
+# sudo apt -y install libncurses5
+sudo apt-get -y update
+sudo apt-get -y install libncurses5
 
-# sudo apt -y install libncurses5 # This command doesn't work for some reason.
-# Install libncurses-dev and symlink to libncursed5 instead.
-sudo apt -y install libncurses-dev
-sudo ln -s /usr/lib/x86_64-linux-gnu/libncurses.so.6 /usr/lib/x86_64-linux-gnu/libncurses.so.5
-sudo ln -s /usr/lib/x86_64-linux-gnu/libncursesw.so.6 /usr/lib/x86_64-linux-gnu/libncursesw.so.5
-sudo ln -s /usr/lib/x86_64-linux-gnu/libtinfo.so.6 /usr/lib/x86_64-linux-gnu/libtinfo.so.5
+# Janky way to do libncurses5 installation, doesn't work well.
+# Requires libncurses5, which is not installed by default. Symlink to libncurses6.
+# lib_platform=$(uname -m)-linux-gnu
+# sudo ln -s /usr/lib/$lib_platform/libncurses.so.6 /usr/lib/$lib_platform/libncurses.so.5
+# sudo ln -s /usr/lib/$lib_platform/libncursesw.so.6 /usr/lib/$lib_platform/libncursesw.so.5
+# sudo ln -s /usr/lib/$lib_platform/libtinfo.so.6 /usr/lib/$lib_platform/libtinfo.so.5
 
 sudo apt -y install python3
 sudo apt -y install python3-pip
